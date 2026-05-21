@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Inter", sans-serif;
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-body: 1rem;
+  /* 16px */
+  --text-title: 3.5rem;
+  /* 20px */
+
+  --gris: #7c7c7c;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #ebebeb;
+  --bg-tertiary: #f0f0f0;
+  --bg-quarters: #e6edff;
+
+  --bg-activo: #A7BDF4;
+
+  --bg-azul1: #4C5FA8;
+  --bg-azul2: #6F8FE0;
+  --bg-azul3: #A7BDF4;
+  --bg-azulVioleta: #7369ad;
+  --bg-purpuraElec: #6147EA;
+  --bg-red: #f75c5cde;
+
+  --bg-card: #f1f1f1;
+  --bg-btn: #d6d6d6;
+  --foreground: #373f50;
+  --bg-ui: #b1b1b1;
+  --borde-ui: #e5e7eb;
+
+  /* ================= SCROLL ================= */
+  --scroll-thumb: rgba(55, 63, 80, 0.25);
+  --scroll-thumb-hover: rgba(55, 63, 80, 0.5);
+
+  /* ================= SHADOW SYSTEM ================= */
+  /* superficies planas */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+  /* cards normales */
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.08);
+  /* cards normales */
+  --shadow-white: 8px 5px 18px 3px rgba(255, 255, 255, 0.74);
+  /* cards normales */
+  --shadow-black: 8px 5px 18px 3px rgba(0, 0, 0, 0.35);
+
+  /* elementos interactivos */
+  --shadow-button: 0 2px 4px rgba(0, 0, 0, 0.12);
+
+  /* dropdown / popover */
+  --shadow-popover:
+    0 10px 25px rgba(0, 0, 0, 0.12),
+    0 4px 10px rgba(0, 0, 0, 0.06);
+
+  /* modal / dialogs */
+  --shadow-modal:
+    0 20px 40px rgba(0, 0, 0, 0.18);
+
+  /* focus glow moderno */
+  --shadow-focus:
+    0 0 0 3px rgba(124, 58, 237, 0.25);
+
+  /* ================= SHADOW INSET ================= */
+  --shadow-inset-sm: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-inset-md: inset 0 2px 8px rgba(0, 0, 0, 0.22);
+  --shadow-inset-lg: inset 0 4px 16px rgba(0, 0, 0, 0.32);
+}
+
+.dark {
+  --bg-primary: #232325;
+  --bg-secondary: #161618;
+  --bg-tertiary: #3a3a3a;
+  --bg-quarters: #2d2d30;
+
+  --bg-morado1: #1c0e25;
+  --bg-azuloscuro: #1f2937;
+  --bg-morado2: #2d123f;
+
+  --bg-btn: #ffffff;
+  --foreground: #cccccc;
+
+  --bg-ui: #6b6b6b;
+  --borde-ui: #2c2d2e;
+
+  --scroll-thumb: rgba(204, 204, 204, 0.25);
+  --scroll-thumb-hover: rgba(204, 204, 204, 0.5);
+}
+
+/* Tailwind tokens */
+@theme {
+  /* typography */
+  --text-sm: var(--text-sm);
+  --text-body: var(--text-body);
+  --text-title: var(--text-title);
+
+  /* bg */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-bg-quarters: var(--bg-quarters);
+
+  --color-bg-azul1: var(--bg-azul1);
+  --color-bg-azul2: var(--bg-azul2);
+  --color-bg-azul3: var(--bg-azul3);
+
+  --color-bg-azulVioleta: var(--bg-azulVioleta);
+  --color-bg-purpuraElec: var(--bg-purpuraElec);
+
+  --color-bg-red: var(--bg-red);
+
+  --color-bg-activo: var(--bg-activo);
+
+  --color-bg-card: var(--bg-card);
+  --color-bg-btn: var(--bg-btn);
+  --color-foreground: var(--foreground);
+  --color-gris: var(--gris);
+
+  --color-bg-ui: var(--bg-ui);
+  --color-borde-ui: var(--borde-ui);
+  --font-sans: var(--font-sans);
+
+  /* shadows */
+  --shadow-xs: var(--shadow-xs);
+  --shadow-card: var(--shadow-card);
+  --shadow-white: var(--shadow-white);
+  --shadow-black: var(--shadow-black);
+  --shadow-button: var(--shadow-button);
+  --shadow-popover: var(--shadow-popover);
+  --shadow-modal: var(--shadow-modal);
+  --shadow-focus: var(--shadow-focus);
+
+  /* shadows */
+  --shadow-inset-sm: var(--shadow-inset-sm);
+  --shadow-inset-md: var(--shadow-inset-md);
+  --shadow-inset-lg: var(--shadow-inset-lg);
+
+
+
+  --animate-flotar: flotar 2.5s ease-in-out infinite alternate;
+
+  @keyframes flotar {
+    0% {
+      transform: translate(0, 0px);
+    }
+
+    50% {
+      transform: translate(0, 15px);
+    }
+
+    100% {
+      transform: translate(0, -0px);
+    }
+  }
+
+  --animate-flotar2: flotar2 1s ease-in-out infinite alternate;
+
+  @keyframes flotar2 {
+    from {
+      transform: translateY(-3px);
+    }
+
+    to {
+      transform: translateY(3px);
+    }
+  }
+
+
+    --animate-rotBGimg: rotBGimg 3s linear infinite ;
+  @keyframes rotBGimg {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 20px;
+  border: 2px solid var(--bg-primary);
+  /* Esto hace que parezca separado del borde */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-hover);
+}
+
+/* Para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+
+/* ================= SCROLL MODERNO SIDEBAR ================= */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 10px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}

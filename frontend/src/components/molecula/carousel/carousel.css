@@ -1,0 +1,42 @@
+
+
+/* Estilos para cada slide (la tarjeta) */
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #fff;
+    /* Fondo blanco para las imágenes */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Mantiene la imagen dentro de los bordes redondeados */
+}
+
+/* Ajuste de las imágenes para que cubran la tarjeta */
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Personalización de las flechas de navegación */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #23313f;
+    /* Cambia al color de tu marca */
+    transform: scale(0.6);
+    /* Flechas más sutiles para tarjetas pequeñas */
+}
+
+/* Personalización de la paginación tipo fracción (1 / 5) */
+.swiper-pagination-fraction {
+    color: #333;
+    font-size: 14px;
+    bottom: -5px !important;
+    /* La mueve un poco hacia abajo */
+}
