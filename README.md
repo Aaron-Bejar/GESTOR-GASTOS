@@ -6,27 +6,27 @@
 [![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 [![Gemini](https://img.shields.io/badge/Gemini_AI-2.5_Flash-F4B400?style=for-the-badge&logo=google-gemini&logoColor=white)](https://deepmind.google/technologies/gemini/)
 
-Una aplicación web premium de finanzas personales diseñada para registrar, categorizar y analizar movimientos financieros diarios con precisión quirúrgica. Su principal valor diferencial es la integración de un **Asistente de Finanzas Inteligente (Chatbot)** potenciado por inteligencia artificial mediante arquitectura **RAG (Retrieval-Augmented Generation)**, realizando búsquedas vectoriales avanzadas con `pgvector` directamente en Postgres para brindar respuestas personalizadas, veraces y empáticas basadas únicamente en el historial financiero del usuario.
+Una aplicación web de finanzas personales diseñada para registrar, categorizar y analizar movimientos financieros diarios. Su principal valor diferencial es la integración de un **Asistente de Finanzas Inteligente (Chatbot)** potenciado por inteligencia artificial mediante arquitectura **RAG (Retrieval-Augmented Generation)**, realizando búsquedas vectoriales avanzadas con `pgvector` directamente en Postgres para brindar respuestas personalizadas, veraces y empáticas basadas únicamente en el historial financiero del usuario.
 
 ---
 
 ## 🚀 Características Principales
 
-* **🔐 Autenticación de Nivel Empresarial**: Flujo de inicio de sesión público y protegido integrado de forma segura con **Supabase Auth** y **Google Cloud**.
-* **📂 Gestión Dinámica de Categorías (CRUD)**: Creación y personalización de categorías para ingresos y gastos, con asignación libre de colores y un selector interactivo de emojis.
-* **💸 Control de Movimientos en Tiempo Real**:
+* **Autenticación de Nivel Empresarial**: Flujo de inicio de sesión público y protegido integrado de forma segura con **Supabase Auth** y **Google Cloud**.
+* **Gestión Dinámica de Categorías (CRUD)**: Creación y personalización de categorías para ingresos y gastos, con asignación libre de colores y un selector interactivo de emojis.
+* **Control de Movimientos en Tiempo Real**:
   - Registro y edición completa (CRUD) de ingresos y gastos.
   - Gestión de estados de movimientos (Pendiente / Pagado o Recibido).
   - Asociación fluida con cuentas bancarias y categorías específicas.
   - **Calendario Lineal Interactivo** en el Dashboard para navegar y visualizar de forma intuitiva las transacciones diarias.
-* **📊 Dashboard de Analíticas Avanzadas**:
+* **Dashboard de Analíticas Avanzadas**:
   - Indicadores clave de rendimiento (KPIs) mediante tarjetas de balance general y parciales (Ingresos/Gastos Pendientes y Realizados).
   - Reportes gráficos dinámicos e interactivos desarrollados con `react-chartjs-2` para monitorear tendencias.
-* **🤖 Asistente Financiero RAG Integrado**:
+* **Asistente Financiero RAG Integrado**:
   - Chat interactivo capaz de analizar en segundos tu estado financiero general.
   - Implementación de **Búsqueda Vectorial Semántica** mediante embeddings de Gemini y la función RPC `buscar_contexto_ia` en Supabase (`pgvector`).
   - Contextualización exacta que evita alucinaciones de la IA, asegurando consejos fundamentados estrictamente en tus datos reales.
-* **⚙️ Preferencias a Medida**:
+* **Preferencias a Medida**:
   - Persistencia del tema elegido (Modo Claro / Modo Oscuro) almacenado directamente en base de datos.
   - Soporte de divisa principal dinámica para formatear de manera global toda la interfaz de la aplicación.
 
