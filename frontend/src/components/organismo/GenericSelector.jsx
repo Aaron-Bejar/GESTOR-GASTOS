@@ -79,7 +79,6 @@ export const GenericSelector = ({
                             </div>
                         </>
                     )}
-
                 </div>
             )}
         </div>

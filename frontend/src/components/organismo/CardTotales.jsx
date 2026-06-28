@@ -12,11 +12,6 @@ export const CardTotales = ({ total, title, icono, style, styleFlecha, styleBtn 
             <section className='flex flex-col gap-3'>
                 <div className='flex flex-row gap-2 items-center justify-between'>
                     <p className=' truncate'>{title}</p>
-                    <BotonIcon
-                        icon={ChevronDown}
-                        onAction={() => console.log("")}
-                        style={styleFlecha}
-                    />
                 </div>
                 <p className='text-3xl truncate'>{dataUser.moneda}{" "}{total}</p>
             </section>

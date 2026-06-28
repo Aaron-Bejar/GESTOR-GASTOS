@@ -15,11 +15,14 @@ import { CardTotales } from '../organismo/CardTotales';
 import { CalendarLineal } from '../molecula/CalendarLineal';
 import { MotionTabla } from '../organismo/tablas/MotionTabla';
 import { MotionRegister } from '../organismo/formulario/MotionRegister';
+import { InputBuscadorList } from '../molecula/InputBuscadorList';
+import { MotionCategoriaSelector } from '../organismo/MotionCategoriaSelector';
+import { BotonPrimary } from '../atomo/BotonPrimary';
 
 export const MotionTemplate = () => {
     const [modalAddOpen, setModalAddOpen] = useState(false);
     const [modalEditOpen, setModalEditOpen] = useState(false);
-    
+
     const { motionTipo, setMotionTipo, motionSelect, setMotionSelect } = useMotionStore()
     const { categorias } = useCategoryQuery(motionTipo.tipo)
     const {
@@ -34,8 +37,18 @@ export const MotionTemplate = () => {
     } = useMotionQuery(motionTipo.tipo)
 
     const { cuenta, isLoadingCuenta } = useCuentaQuery()
+    const [busquedad, setBusquedad] = useState("");
+    const [categoriaFiltro, setCategoriaFiltro] = useState({});
+
     if (isLoading || isLoadingCuenta) return <Spinner />
-   // console.log("MOVIMENITO :", motion)
+    // console.log("MOVIMENITO :", motion)
+
+    const limpiarFiltros = () => {
+        setBusquedad("");
+        setCategoriaFiltro(null);
+    };
+    console.log(categoriaFiltro.descrip)
+    console.log(busquedad)
     return (
         <>
             <GridPlantilla
@@ -74,6 +87,7 @@ export const MotionTemplate = () => {
 
                 }
                 area1={
+                    // CARD TOTALES
                     <div className='grid gap-3 grid-cols-1 sm:grid-cols-3 p-3'>
                         <CardTotales
                             total={totalPendientes}
@@ -105,13 +119,49 @@ export const MotionTemplate = () => {
                 }
 
                 main={
-                    <div className="p-3 ">
-                        <MotionTabla
-                            data={motion}
-                            eliminar={eliminar}
-                            setModalEditOpen={setModalEditOpen}
-                            setMotionSelect={setMotionSelect}
-                        />
+                    <div className="flex flex-col gap-4 p-3 w-full max-w-full overflow-hidden ">
+                        <div className="flex flex-col sm:flex-row gap-3 w-full items-stretch sm:items-center">
+
+                            {/* Input toma todo el espacio disponible en móvil y escritorio */}
+                            <div className="flex-1 min-w-0">
+                                <InputBuscadorList
+                                    placeholder="Buscar movimiento..."
+                                    value={busquedad}
+                                    onChange={(e) => setBusquedad(e.target.value)}
+                                />
+                            </div>
+
+                            {/* Selector de categorías y botón alineados en la misma fila */}
+                            <div className="flex items-center gap-3 justify-between sm:justify-start">
+                                <div className="w-full "> {/* Ancho controlado en escritorio */}
+                                    <MotionCategoriaSelector
+                                        value={categoriaFiltro}
+                                        onChange={(item) => setCategoriaFiltro(item)}
+                                        categorias={categorias}
+                                    />
+                                </div>
+
+                                {/* Botón de limpiar dinámico */}
+                                <div className="shrink-0">
+                                    <BotonPrimary
+                                        style="colorido"
+                                        action={limpiarFiltros}
+                                    >
+                                        Limpiar
+                                    </BotonPrimary>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className="w-full overflow-x-auto rounded-2xl border border-borde-ui bg-bg-primary shadow-sm sidebar-scroll">
+                            <MotionTabla
+                                data={motion} //cada se supone q deberia mandar la data filtrada o el motion normal
+                                eliminar={eliminar}
+                                setModalEditOpen={setModalEditOpen}
+                                setMotionSelect={setMotionSelect}
+                            />
+                        </div>
+
                     </div>
                 }
             />

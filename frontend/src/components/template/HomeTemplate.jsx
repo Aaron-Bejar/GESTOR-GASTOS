@@ -21,10 +21,9 @@ export const HomeTemplate = () => {
         <h1 className="text-5xl sm:text-6xl font-bold transition-text duration-100 lg:text-start" >
           Visualiza tus datos con <span className="text-bg-azul2">Claridad</span>
         </h1>
-
+        {/* descripcion */}
         <p className="font-bold text-balance lg:text-start">
-          Nuestra herramienta te permite visualizar métricas, administrar finanzas y procesos desde una única interfaz. Impulsa tu crecimiento tomando decisiones estratégicas basadas en el análisis de datos actuales.
-        </p>
+Toma el control total de tus finanzas personales registrando tus ingresos y gastos diarios de forma dinámica. Analiza tu salud financiera con gráficos interactivos y obtén recomendaciones personalizadas conversando con nuestro Asistente Inteligente potenciado por IA.        </p>
 
         <div className="flex justify-center lg:justify-start">
           <BotonPrimary
