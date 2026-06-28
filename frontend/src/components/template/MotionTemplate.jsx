@@ -38,7 +38,8 @@ export const MotionTemplate = () => {
 
     const { cuenta, isLoadingCuenta } = useCuentaQuery()
     const [busquedad, setBusquedad] = useState("");
-    const [categoriaFiltro, setCategoriaFiltro] = useState({});
+    const [categoriaFiltro, setCategoriaFiltro] = useState(null);
+
 
     if (isLoading || isLoadingCuenta) return <Spinner />
     // console.log("MOVIMENITO :", motion)
@@ -47,8 +48,25 @@ export const MotionTemplate = () => {
         setBusquedad("");
         setCategoriaFiltro(null);
     };
-    console.log(categoriaFiltro.descrip)
-    console.log(busquedad)
+    // console.log(categoriaFiltro.descrip)
+    // console.log(busquedad)
+    console.log(motion)
+    // 2. LÓGICA DE FILTRADO COMBINADO (Texto + Categoría)
+    const dataFiltrada = motion?.filter((item) => {
+        // Filtro por texto: busca coincidencia en la descripción del movimiento
+        const cumpleBusqueda = item.descrip
+            ?.toLowerCase()
+            .includes(busquedad.toLowerCase());
+
+        // Filtro por categoría: si no hay filtro seleccionado, pasan todos. 
+        // Si hay filtro, debe coincidir el id o la descripción de la categoría.
+        const cumpleCategoria = !categoriaFiltro
+            ? true
+            : item.id_categoria === categoriaFiltro.id || item.categoria === categoriaFiltro.descrip;
+
+        return cumpleBusqueda && cumpleCategoria;
+    }) || []; // Si motion es undefined, devolvemos un array vacío de respaldo
+
     return (
         <>
             <GridPlantilla
@@ -142,20 +160,23 @@ export const MotionTemplate = () => {
                                 </div>
 
                                 {/* Botón de limpiar dinámico */}
-                                <div className="shrink-0">
-                                    <BotonPrimary
-                                        style="colorido"
-                                        action={limpiarFiltros}
-                                    >
-                                        Limpiar
-                                    </BotonPrimary>
-                                </div>
+                                {/* Reemplaza tu bloque del botón por este 👇 */}
+                                {(busquedad || (categoriaFiltro && Object.keys(categoriaFiltro).length > 0)) && (
+                                    <div className="shrink-0">
+                                        <BotonPrimary
+                                            style="colorido"
+                                            action={limpiarFiltros}
+                                        >
+                                            Limpiar
+                                        </BotonPrimary>
+                                    </div>
+                                )}
 
                             </div>
                         </div>
                         <div className="w-full overflow-x-auto rounded-2xl border border-borde-ui bg-bg-primary shadow-sm sidebar-scroll">
                             <MotionTabla
-                                data={motion} //cada se supone q deberia mandar la data filtrada o el motion normal
+                                data={dataFiltrada} //cada se supone q deberia mandar la data filtrada o el motion normal
                                 eliminar={eliminar}
                                 setModalEditOpen={setModalEditOpen}
                                 setMotionSelect={setMotionSelect}
