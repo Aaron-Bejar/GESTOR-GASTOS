@@ -63,7 +63,7 @@ frontend/
 ## 🚀 4. Funcionalidades Implementadas
 El proyecto cuenta con las siguientes capacidades listas para usar:
 
-* **🔐 Autenticación Robusta**: Flujo de inicio de sesión público y protegido en base a la sesión del usuario a través de Google Cloud y Supabase.
+* **🔐 Autenticación**: Flujo de inicio de sesión público y protegido en base a la sesión del usuario a través de Google Cloud y Supabase.
 * **📂 Gestión Dinámica de Categorías**: Creación, edición y borrado de categorías de ingresos y gastos con colores personalizados y selectores de emojis integrados.
 * **💸 Registro y Gestión de Movimientos**: 
   - Gestión completa de ingresos y gastos (CRUD).
