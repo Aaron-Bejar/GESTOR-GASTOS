@@ -11,25 +11,28 @@ export const LoginCard = () => {
     const { signInWithGoogle } = useAuthStore()
 
     return (
-        <div className=' relative z-10 bg-bg-card rounded-xl w-screen p-3 mx-4 sm:w-1/2 
+        <div className=' relative z-10 bg-bg-card rounded-xl w-screen px-6 py-7 mx-4 sm:w-1/2 
             shadow-black 
         '>
             <span className='text-left text-gray-400'>version 1.0</span>
-            <div className='flex flex-col items-center gap-4 mt-2'>
+            <div className='flex flex-col items-center justify-center  mt-2'>
                 <div className='max-w-1/3 animate-flotar'>
-                    <img src={Img.buho} alt="" />
+                    <img src={Img.logoCajaH} alt="" className='rounded-2xl' />
                 </div>
 
-                <span className='font-bold text-title'>GestOwl</span>
+                <h1 className='font-bold mt-6 text-center text-2xl sm:text-3xl md:text-title text-foreground max-w-full break-words px-2'>
+                    Finanzas Personales
+                </h1>
                 <p className='text-gray-700 text-center'>Gestiona su gastos e ingresos</p>
-
-                <BotonPrimary
-                    style={'colorido'}
-                    icono={Icons.google}
-                    action={signInWithGoogle}
-                >
-                    Iniciar con Google
-                </BotonPrimary>
+                <div className='mt-5'>
+                    <BotonPrimary
+                        style={'colorido'}
+                        icono={Icons.google}
+                        action={signInWithGoogle}
+                    >
+                        Iniciar con Google
+                    </BotonPrimary>
+                </div>
             </div>
 
         </div>

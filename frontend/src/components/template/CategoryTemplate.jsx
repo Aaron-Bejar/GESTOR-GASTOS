@@ -17,7 +17,6 @@ export const CategoryTemplate = () => {
     const [modalAddOpen, setModalAddOpen] = useState(false);
     const [modalEditOpen, setModalEditOpen] = useState(false);
 
-    if (isLoading) return <Spinner />
     return (
         <>
             <GridPlantilla
@@ -48,6 +47,7 @@ export const CategoryTemplate = () => {
                     <div className="p-3">
                         <CategoryTabla
                             data={categorias}
+                            isLoading={isLoading}
                             eliminar={eliminar}
                             setModalEditOpen={setModalEditOpen}
                             setcategorySelect={setCategorySelect}

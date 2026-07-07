@@ -41,16 +41,11 @@ export const MotionTemplate = () => {
     const [categoriaFiltro, setCategoriaFiltro] = useState(null);
 
 
-    if (isLoading || isLoadingCuenta) return <Spinner />
-    // console.log("MOVIMENITO :", motion)
-
     const limpiarFiltros = () => {
         setBusquedad("");
         setCategoriaFiltro(null);
     };
-    // console.log(categoriaFiltro.descrip)
-    // console.log(busquedad)
-    console.log(motion)
+
     // 2. LÓGICA DE FILTRADO COMBINADO (Texto + Categoría)
     const dataFiltrada = motion?.filter((item) => {
         // Filtro por texto: busca coincidencia en la descripción del movimiento
@@ -177,6 +172,7 @@ export const MotionTemplate = () => {
                         <div className="w-full overflow-x-auto rounded-2xl border border-borde-ui bg-bg-primary shadow-sm sidebar-scroll">
                             <MotionTabla
                                 data={dataFiltrada} //cada se supone q deberia mandar la data filtrada o el motion normal
+                                isLoading={isLoading || isLoadingCuenta}
                                 eliminar={eliminar}
                                 setModalEditOpen={setModalEditOpen}
                                 setMotionSelect={setMotionSelect}

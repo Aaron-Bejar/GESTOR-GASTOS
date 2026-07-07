@@ -5,6 +5,7 @@ import barras2 from "./images/barras2.webp"
 import graficaCircular from "./images/graficaCircular.webp"
 import personaCohete from "./images/persona-y-cohete.webp"
 import personaGraficas from "./images/persona-y-graficas.webp"
+import logoCajaH from "./images/logoCajaH.png"
 
 export const Img = {
     buho,
@@ -14,4 +15,5 @@ export const Img = {
     graficaCircular,
     personaCohete,
     personaGraficas,
+    logoCajaH
 };

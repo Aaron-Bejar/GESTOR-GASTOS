@@ -7,6 +7,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    Filler
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -17,7 +18,8 @@ export const Barras = ({ data, dataReporte, tipo }) => {
         BarElement,
         Title,
         Tooltip,
-        Legend
+        Legend,
+        Filler
     );
 
     const options = {

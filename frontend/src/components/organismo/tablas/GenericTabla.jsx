@@ -1,15 +1,19 @@
 import React from 'react'
 import { EmptyState } from '../../molecula/EmptyState'
 import { ActionsTabla } from './ActionsTabla'
-
+import { Spinner } from '../../atomo/Spinner';
 
 export const GenericTabla = ({
     data = [],
+    isLoading = false, // 1. Agregamos la prop de control de carga
     columns = [],
     actionsIcon,
 }) => {
+    // Calculamos el total de columnas para el colSpan de escritorio
+    const totalColumnas = columns.length + (actionsIcon ? 1 : 0);
+
     return (
-        <div className=" w-full sidebar-scroll ">
+        <div className="w-full sidebar-scroll">
             <table className="table-auto w-full rounded-2xl overflow-hidden bg-bg-primary text-foreground shadow-md">
 
                 {/* HEAD: Se oculta en móvil, se muestra en desktop */}
@@ -31,15 +35,26 @@ export const GenericTabla = ({
                 {/* BODY: Cada 'tr' es un bloque en móvil */}
                 <tbody className="block sm:table-row-group">
                     {
-                        data.length === 0 ?
+                        // 2. Condición de Carga Prioritaria
+                        isLoading ? (
                             <tr className="block sm:table-row">
                                 <td
-                                    colSpan={columns.length + (actionsIcon ? 1 : 0)}
+                                    colSpan={totalColumnas}
+                                    className="block sm:table-cell text-center py-10"
+                                >
+                                    <Spinner />
+                                </td>
+                            </tr>
+                        ) : data.length === 0 ? (
+                            <tr className="block sm:table-row">
+                                <td
+                                    colSpan={totalColumnas}
                                     className="block sm:table-cell text-center"
                                 >
-                                    <EmptyState text="Sin registros"/>
+                                    <EmptyState text="Sin registros" />
                                 </td>
-                            </tr> :
+                            </tr>
+                        ) : (
                             data.map((row, i) => (
                                 <tr
                                     key={i}
@@ -51,7 +66,7 @@ export const GenericTabla = ({
                                             className="block sm:table-cell px-4 py-3 text-sm text-right sm:px-0 sm:text-center relative 
                                                before:content-[attr(data-label)] before:absolute before:left-4 before:font-bold 
                                                before:uppercase before:text-xs before:sm:hidden "
-                                            data-label={col.label} // Esto inyecta el nombre de la columna en móvil
+                                            data-label={col.label}
                                         >
                                             {col.render ? col.render(row) : row[col.key]}
                                         </td>
@@ -69,7 +84,9 @@ export const GenericTabla = ({
                                         </td>
                                     )}
                                 </tr>
-                            ))}
+                            ))
+                        )
+                    }
                 </tbody>
             </table>
         </div>

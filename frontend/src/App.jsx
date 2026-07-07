@@ -4,10 +4,16 @@ import { MyRouter } from "./router/MyRouter"
 import { Spinner } from "./components/atomo/Spinner"
 import { useTheme } from "./hook/useTheme"
 import { useUserQuery } from "./hook/useUserQuery"
+import { useAuth } from "./hook/useAuth"
 
 
 function App() {
-  const { data, isLoading } = useUserQuery()
+  const { session, loading: authLoading } = useAuth() // Traemos la sesión aquí también
+
+  const { data, isLoading: userLoading } = useUserQuery({
+    // 1. IMPORTANTE: Solo busca el usuario en la BD si existe una sesión activa
+    enabled: !!session
+  })
   const { setTheme } = useTheme()
 
   useEffect(() => {
@@ -19,9 +25,15 @@ function App() {
       setTheme('light')
     }
   }, [data])
-
-  if (isLoading) return <Spinner />
   
+  if (session && userLoading) {
+    return (
+      <div className="fixed inset-0 bg-bg-primary flex items-center justify-center">
+        <Spinner />
+      </div>
+    )
+  }
+
   return (
     <>
       <MyRouter />

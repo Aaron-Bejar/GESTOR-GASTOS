@@ -7,6 +7,7 @@ import { GenericTabla } from './GenericTabla'
 
 export const MotionTabla = ({
     data,
+    isLoading,
     eliminar,
     setModalEditOpen,
     setMotionSelect
@@ -65,6 +66,7 @@ export const MotionTabla = ({
     return (
         <GenericTabla
             data={data}
+            isLoading={isLoading}
             columns={columnsMotion}
             actionsIcon={actionsIcon}
         />

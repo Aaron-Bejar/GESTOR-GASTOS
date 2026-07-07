@@ -17,19 +17,10 @@ export const AuthProvider = ({ children }) => {
     }, [session])
 
     useEffect(() => {
-        const getInitialSession = async () => {
-            const { data, error } = await supabase.auth.getSession()
-            if (error) {
-                console.error('Error obteniendo sesión:', error.message)
-            }
-            setSession(data.session ?? null)
-            setLoading(false)
-        }
-        getInitialSession()
-
         const { data: listener } = supabase.auth.onAuthStateChange(
             (event, session) => {
                 setSession(session)
+                setLoading(false)
             }
         )
         return () => {

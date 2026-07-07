@@ -9,6 +9,38 @@ function IconSparkles() {
   )
 }
 
+const markdownComponents = {
+  p: ({ ...props }) => <span className="block leading-relaxed" {...props} />,
+  ul: ({ ...props }) => <ul className="m-0 pl-4 list-disc" {...props} />,
+  ol: ({ ...props }) => <ol className="m-0 pl-4 list-decimal" {...props} />,
+  li: ({ ...props }) => <li className="m-0" {...props} />,
+  a: ({ ...props }) => (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline text-bg-azul1 hover:text-bg-azul2"
+      {...props}
+    />
+  ),
+  code: ({ inline, className, children, ...props }) =>
+    inline ? (
+      <code className="rounded bg-bg-tertiary px-1 py-0.5 text-xs" {...props}>
+        {children}
+      </code>
+    ) : (
+      <code className={`block whitespace-pre-wrap ${className ?? ''}`} {...props}>
+        {children}
+      </code>
+    ),
+  pre: ({ ...props }) => (
+    <pre
+      className="my-2 max-w-full overflow-x-auto rounded-lg bg-bg-tertiary p-3 text-xs"
+      {...props}
+    />
+  ),
+  strong: ({ ...props }) => <strong className="font-semibold" {...props} />,
+}
+
 export function ChatMessages({ messages, scrollRef }) {
   const isEmpty = messages.length === 0
 
@@ -41,13 +73,9 @@ export function ChatMessages({ messages, scrollRef }) {
                     <IconSparkles />
                   </div>
                   <div className="min-w-0 max-w-[85%] break-words rounded-2xl rounded-bl-md border border-borde-ui bg-bg-secondary px-4 py-3.5 text-sm leading-relaxed text-foreground shadow-card">
-                    <ReactMarkdown
-                      components={{
-                        p: ({ ...props }) => <span className="block leading-relaxed" {...props} />,
-                        ul: ({ ...props }) => <ul className="m-0 pl-4 list-disc" {...props} />,
-                        li: ({ ...props }) => <li className="m-0" {...props} />
-                      }}
-                    >{m.content.trim()}</ReactMarkdown>
+                    <ReactMarkdown components={markdownComponents}>
+                      {m.content.trim()}
+                    </ReactMarkdown>
                   </div>
                 </div>
               ),

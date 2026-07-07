@@ -7,11 +7,12 @@ import { GenericTabla } from './GenericTabla'
 
 export const CategoryTabla = ({
     data,
+    isLoading,
     eliminar,
     setModalEditOpen,
     setcategorySelect
 }) => {
-    
+
     const handleEdit = (row) => {
         console.log("editando", row.id)
         setcategorySelect(row)
@@ -65,6 +66,7 @@ export const CategoryTabla = ({
     return (
         <GenericTabla
             data={data}
+            isLoading={isLoading}
             columns={columnsCategory}
             actionsIcon={actionsIcon}
         />

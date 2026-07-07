@@ -1,10 +1,11 @@
 import React from 'react'
 import { ClipLoader } from 'react-spinners'
 
-export const Spinner = () => {
+// Agregamos la prop className para darle flexibilidad externa si la necesitas
+export const Spinner = ({ className = '' }) => {
     return (
-        <div className='fixed inset-0 z-150 flex items-center justify-center'>
-            <ClipLoader color={"#6F8FE0"} size={70} />
+        <div className={`w-full flex items-center justify-center p-8 ${className}`}>
+            <ClipLoader color={"#6F8FE0"} size={50} /> {/* Bajé un poco el size a 50 para que encaje mejor en componentes */}
         </div>
     )
 }

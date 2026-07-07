@@ -1,18 +1,18 @@
 import React from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+// 1. Agrega "Filler" a las importaciones de chart.js
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Filler } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
 export const Dona = ({ data, dataReporte, tipo }) => {
-    ChartJS.register(ArcElement, Tooltip, Legend);
+    // 2. Registra el plugin Filler aquí
+    ChartJS.register(ArcElement, Tooltip, Legend, Filler);
 
     const options = {
         responsive: true,
-        // Esto permite que se estire al contenedor
     };
 
     return (
         <div className="flex flex-col md:flex-row items-center gap-6">
-
             {/* Contenedor del Gráfico */}
             <div className="w-full md:w-1/2 h-64 md:h-80 flex justify-center items-center">
                 <Doughnut data={data} options={options} />

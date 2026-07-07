@@ -4,8 +4,6 @@ const MIN_HEIGHT = 24
 const MAX_HEIGHT = 120
 const SINGLE_LINE_HEIGHT = 44
 
-
-
 function IconSend() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -13,7 +11,6 @@ function IconSend() {
     </svg>
   )
 }
-
 
 export function ChatInput({ value, onChange, onSend, placeholder = 'Escribe un mensaje…' }) {
   const textareaRef = useRef(null)

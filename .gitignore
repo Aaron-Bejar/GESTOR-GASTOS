@@ -7,6 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
+frontend/documentos/
 # Node / Build (Rutas corregidas para la raíz)
 frontend/node_modules/
 frontend/dist/
