@@ -17,11 +17,11 @@ export const LoginCard = () => {
             <span className='text-left text-gray-400'>version 1.0</span>
             <div className='flex flex-col items-center justify-center  mt-2'>
                 <div className='max-w-1/3 animate-flotar'>
-                    <img src={Img.logoCajaH} alt="" className='rounded-2xl' />
+                    <img src={Img.buho} alt="" className='rounded-2xl' />
                 </div>
 
                 <h1 className='font-bold mt-6 text-center text-2xl sm:text-3xl md:text-title text-foreground max-w-full break-words px-2'>
-                    Finanzas Personales
+                    GestOwl
                 </h1>
                 <p className='text-gray-700 text-center'>Gestiona su gastos e ingresos</p>
                 <div className='mt-5'>

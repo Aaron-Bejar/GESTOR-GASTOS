@@ -41,12 +41,12 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
                 <Link to={'/Home'} className={`flex py-4 px-4 items-center transition-all border-l-4 border-transparent ${isOpen && isMobil === false ? "py-8 px-7 gap-4" : "py-8 "}`}>
 
                     <div className={`animate-flotar2 w-10 `}>
-                        <img src={Img.logoCajaH} alt="" className='rounded-lg w-full h-full object-contain' />
+                        <img src={Img.buho} alt="" className='rounded-lg w-full h-full object-contain' />
                     </div>
                     {isOpen && isMobil === false && (
                         <span className='text-foreground text-xl font-bold flex flex-col'>
-                            <span>Finanza</span>
-                            <span>Personal</span>
+                            <span>GestOwl</span>
+                            
                         </span>
                     )}
                 </Link>
